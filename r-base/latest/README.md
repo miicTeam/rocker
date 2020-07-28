@@ -8,3 +8,7 @@ See the [source directories](https://github.com/rocker-org/rocker/tree/master/r-
 
 Documentation is being added at the [Wiki](https://github.com/rocker-org/rocker/wiki). Please file
 issue tickets at [the rocker/ issue tracker](https://github.com/rocker-org/rocker/issues). 
+
+## MIIC dependencies
+
+[`miic`](https://github.com/miicTeam/miic_R_package) dependencies are added at the end of the `r-base` build
