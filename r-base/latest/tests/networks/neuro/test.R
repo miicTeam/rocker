@@ -39,7 +39,6 @@ cmapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
     USE.NAMES = TRUE)
 {
     l <- expand.grid(..., stringsAsFactors=FALSE)
-    print(l)
     test_result <- do.call(mapply, c(
         list(FUN=FUN, MoreArgs = MoreArgs, SIMPLIFY = SIMPLIFY, USE.NAMES = USE.NAMES),
         l
@@ -75,6 +74,9 @@ tests_results = cmapply(FUN=run_miic_neuro,
 # Check results
 if(any(tests_results$test_result==FALSE)){
     message("Some tests failed : ")
-    message(tests_results[tests_results$test_result==FALSE,])
+    message(paste0(capture.output(tests_results[tests_results$test_result==FALSE,]), collapse = "\n"))
     stop()
+}
+else{
+    message("All tests passed!")
 }
