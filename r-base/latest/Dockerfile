@@ -64,4 +64,6 @@ RUN apt-get update \
 ## Install miic dependencies
 RUN R --slave -e 'install.packages(c("glue", "rlang", "colorspace", "testthat", "cli", "crayon", "digest", "ellipsis", "evaluate", "magrittr", "pkgload", "praise", "R6", "withr", "assertthat", "fansi", "desc", "pkgbuild", "rprojroot", "rstudioapi", "callr", "prettyunits", "backports", "processx", "ps", "farver", "labeling", "lifecycle", "munsell", "RColorBrewer", "viridisLite", "pillar", "pkgconfig", "vctrs", "utf8", "gtable", "isoband", "scales", "tibble", "igraph", "ppcor", "Rcpp", "ggplot2", "gridExtra"))'
 
+COPY tests tests/
+
 ## CMD ["R"]
