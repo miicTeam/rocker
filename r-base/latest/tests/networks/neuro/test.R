@@ -2,7 +2,7 @@ library(miic)
 
 compare_version = "1.4.2"
 
-# Comparing results to saved 
+# Comparing results to saved
 compare_miic_results <- function(adj_matrix, ...){
 
     res_file = paste(..., sep="_")
@@ -39,6 +39,11 @@ cmapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
     USE.NAMES = TRUE)
 {
     l <- expand.grid(..., stringsAsFactors=FALSE)
+    # Filter out nonsensical combinations
+    l <- l[!(l$orientation == FALSE & l$propagation == TRUE),]
+    l <- l[!(l$orientation == FALSE & l$latent == "ori"),]
+    l <- l[!(l$orientation == FALSE & l$consistent == "orientation"),]
+
     test_result <- do.call(mapply, c(
         list(FUN=FUN, MoreArgs = MoreArgs, SIMPLIFY = SIMPLIFY, USE.NAMES = USE.NAMES),
         l
@@ -76,7 +81,6 @@ if(any(tests_results$test_result==FALSE)){
     message("Some tests failed : ")
     message(paste0(capture.output(tests_results[tests_results$test_result==FALSE,]), collapse = "\n"))
     stop()
-}
-else{
+} else{
     message("All tests passed!")
 }
