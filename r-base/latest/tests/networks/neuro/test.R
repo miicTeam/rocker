@@ -1,11 +1,12 @@
 library(miic)
 
-compare_version = "1.4.2"
+compare_version = "1.5.0"
 
 # Comparing results to saved
 compare_miic_results <- function(adj_matrix, ...){
 
     res_file = paste(..., sep="_")
+    #write.table(adj_matrix, paste0(compare_version, "/", res_file, ".txt"))
     compare_adj_matrix = read.table(paste0(compare_version, "/", res_file, ".txt"))
 
     return(all(adj_matrix == compare_adj_matrix))
@@ -57,8 +58,8 @@ cmapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
 
 # Import data
 set.seed(1)
-N_rows = 200
-N_columns = 30
+N_rows = 500
+N_columns = 60
 
 input_df <- read.table("input.csv", header=T, sep=",")
 input_df <- input_df[sample(1:nrow(input_df),N_rows),1:N_columns]

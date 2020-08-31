@@ -1,6 +1,6 @@
 library(miic)
 
-compare_version = "1.4.2"
+compare_version = "1.5.0"
 
 # Comparing results to saved
 compare_miic_results <- function(adj_matrix, ...){
@@ -58,7 +58,7 @@ cmapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
 
 # Import data
 set.seed(1)
-N_rows = 400
+N_rows = 500
 
 # EXAMPLE HEMATOPOIESIS
 data(hematoData)
